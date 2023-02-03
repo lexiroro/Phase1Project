@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const p = document.createElement('p')
 
     h3.textContent = cocktail.strDrink
+    h4.textContent = cocktail.strIngredient1
+    p.textContent = cocktail.strInstructions
 
     div.append(h3)
     document.querySelector('#section').append(div)
