@@ -5,29 +5,51 @@ document.addEventListener('DOMContentLoaded', () => {
 // debugger
   data.drinks.forEach(cocktail => {
     const div = document.createElement('div')
-    const h4 = document.createElement('h4')
     const h3 = document.createElement('h3')
+    const h4 = document.createElement('h4')
     const p = document.createElement('p')
 
     h3.textContent = cocktail.strDrink
     h4.textContent = cocktail.strIngredient1
     p.textContent = cocktail.strInstructions
+  
 
     div.append(h3)
     document.querySelector('#section').append(div)
-  })
- })
+  
+h3.addEventListener("click", clickAlert);
 
- function handleRenderSearch(){
-  document.querySelector('#main').innerHTML = 
-  `<form id="Cocktail-Search>
-  <label for="searchCocktail">Search By Cocktail Name</label>
-  <input id="searchByID" type="text" placeholder="Enter Cocktail here"/>
-  <input type="submit" />
-</form>`
+ function clickAlert() {
+  div.append(h4)
+  div.append(p)
+ }
 
-document.querySelector('#Cocktail-Search').addEventListener('submit', handleAPIquery)
-}
+})
+})
+
+// document.querySelector('h3').addEventListener('click', function) {
+//   function showRecipe() {
+//     const h4= document.createElement('h4')
+//     const p = document.createElement('p')
+// h4.textContent = cocktail.strIngredient1
+// p.textContent = cocktail.strInstructions;
+// document.querySelector('#section').append(div);
+//   }
+// }
+
+
+
+
+//  function handleRenderSearch(){
+//   document.querySelector('#main').innerHTML = 
+//   `<form id="Cocktail-Search>
+//   <label for="searchCocktail">Search By Cocktail Name</label>
+//   <input id="searchByID" type="text" placeholder="Enter Cocktail here"/>
+//   <input type="submit" />
+// </form>`
+
+// document.querySelector('#Cocktail-Search').addEventListener('submit', handleAPIquery)
+// }
 
   
 // function fetchResource(url) {
@@ -51,17 +73,17 @@ document.querySelector('#Cocktail-Search').addEventListener('submit', handleAPIq
 
 //Handles Cocktail API Search
 
-function handleAPIquery(e) {
-  fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
-  e.preventDefault()
-  const search = e.target.search.value
-  console.log(search)
-}
+// function handleAPIquery(e) {
+//   fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
+//   e.preventDefault()
+//   const search = e.target.search.value
+//   console.log(search)
+// }
 
 
-document.querySelector('#form').addEventListener('submit', handleForm) 
+// document.querySelector('#form').addEventListener('submit', handleForm) 
 
-document.querySelector('#searchByID').addEventListener('click',handleRenderSearch)
+// document.querySelector('#searchByID').addEventListener('click',handleRenderSearch)
 
 
 //Event Listeners - mouse over and mouseleave
