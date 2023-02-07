@@ -124,4 +124,16 @@ nav-item{
   margin-top: 20px;
   font-size: 25px;
   margin-right: 10px;
+  color: black;
+}
+
+#section > h2 {
+  color:
+  #01604B;
+  padding: 40px;
+  margin-top: 10px;
+}
+
+#section > h3 {
+  padding-top: 30px;
 }
