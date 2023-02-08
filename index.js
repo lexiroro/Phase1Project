@@ -27,15 +27,21 @@ h3.addEventListener("click", clickAlert);
 })
 })
 
-function hiddenToggle(e) {
-  const item = document.querySelector(`[data-id=${e.target.id}]`);
-  item.toggleAttribute('hidden');
-}
+// h3.addEventListener("toggle", toggleItems);
+//   function toggleItems(items) {
+// items.toggleAttribute('hidden');
+//   }
+// }
 
-const toggleItems = document.querySelectorAll(h3);
-toggleItems.forEach((margarita) => {
-  margarita.addEventListener('toggle', hiddenToggle)
-}
+// function hiddenToggle(e) {
+//   const item = document.querySelector(h3);
+//   item.toggleAttribute('hidden');
+// }
+
+// const toggleItems = document.querySelectorAll(h3);
+// toggleItems.forEach((margarita) => {
+//   margarita.addEventListener('toggle', hiddenToggle)
+// }
 
 // document.querySelector('h3').addEventListener('click', function) {
 //   function showRecipe() {
