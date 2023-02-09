@@ -24,24 +24,27 @@ h3.addEventListener("click", clickAlert);
   div.append(p)
  }
 
+ h3.addEventListener("mouseenter", (event) => {
+  event.target.style.color = "purple";
+  setTimeout(() => {
+    event.target.style.color = "";
+  }, 500);
+  }, false);
+
 })
 })
 
-document.querySelector("h3").addEventListener("toggle", myFunction);
+h3.addEventListener("mouseenter", (event) => {
+event.target.style.color = "purple";
+setTimeout(() => {
+  event.target.style.color = "";
+}, 500);
+}, false);
 
-function myFunction() {
-  console.log("This was toggled")
-}
+// document.querySelector("h3").addEventListener("toggle", myFunction);
 
-
-// function hiddenToggle(e) {
-//   const item = document.querySelector(h3);
-//   item.toggleAttribute('hidden');
-// }
-
-// const toggleItems = document.querySelectorAll(h3);
-// toggleItems.forEach((margarita) => {
-//   margarita.addEventListener('toggle', hiddenToggle)
+// function myFunction() {
+//   alert("This was toggled")
 // }
 
 // document.querySelector('h3').addEventListener('click', function) {
