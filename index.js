@@ -27,11 +27,12 @@ h3.addEventListener("click", clickAlert);
 })
 })
 
-// h3.addEventListener("toggle", toggleItems);
-//   function toggleItems(items) {
-// items.toggleAttribute('hidden');
-//   }
-// }
+document.querySelector("h3").addEventListener("toggle", myFunction);
+
+function myFunction() {
+  console.log("This was toggled")
+}
+
 
 // function hiddenToggle(e) {
 //   const item = document.querySelector(h3);
