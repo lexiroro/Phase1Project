@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const p = document.createElement('p')
 
     h3.textContent = cocktail.strDrink
-    h4.textContent = cocktail.strIngredient1
+    h4.textContent = (`${cocktail.strIngredient1}, ${cocktail.strIngredient2}, ${cocktail.strIngredient3}, ${cocktail.strIngredient4}`)
     p.textContent = cocktail.strInstructions
   
 
@@ -22,6 +22,10 @@ h3.addEventListener("click", clickAlert);
  function clickAlert() {
   div.append(h4)
   div.append(p)
+
+  if (h4 === "null") {
+    return ${""}
+  }
  }
 
  h3.addEventListener("mouseenter", (event) => {
