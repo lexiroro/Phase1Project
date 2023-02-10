@@ -123,19 +123,18 @@ li {
 }
 
 #section > h2 {
-  color: #cc99ff;
+  color: #407088;
   padding: 40px;
   margin-top: 10px;
   text-align: center;
 }
 
-#section > #searchbar {
-  text-align: right;
-  padding-bottom: 200px;
-  padding-right: 70px;
+.searchbar {
+  text-align: center;
+  padding-top: 50px;
 }
 
-.form {
-  padding-bottom: 200px;
-  padding-right: 70px;
+.form-container {
+  text-align: center;
+  margin: 40px;
 }
