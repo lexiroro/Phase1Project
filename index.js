@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const h4 = document.createElement('h4')
     const p = document.createElement('p')
 
-    h3.textContent = cocktail.strDrink
+    h3.textContent = cocktail.strDrink;
+    // h3.style.color = "black";
     h4.textContent = (`${cocktail.strIngredient1}, ${cocktail.strIngredient2}, ${cocktail.strIngredient3}, ${cocktail.strIngredient4}`)
     p.textContent = cocktail.strInstructions
   
@@ -22,14 +23,11 @@ h3.addEventListener("click", clickAlert);
  function clickAlert() {
   div.append(h4)
   div.append(p)
-
-  if (h4 === "null") {
-    return ${""}
-  }
+  
  }
 
  h3.addEventListener("mouseenter", (event) => {
-  event.target.style.color = "purple";
+  event.target.style.color = "blue";
   setTimeout(() => {
     event.target.style.color = "";
   }, 500);
@@ -38,12 +36,40 @@ h3.addEventListener("click", clickAlert);
 })
 })
 
-h3.addEventListener("mouseenter", (event) => {
-event.target.style.color = "purple";
-setTimeout(() => {
-  event.target.style.color = "";
-}, 500);
-}, false);
+
+
+const searchInput = document.querySelector('.input');
+
+searchInput.addEventListener("input", (e)=> {
+  let value = e.target.value;
+  if (value && value.trim().length > 0) {
+    value = value.trim().toLowerCase()
+  } else {
+
+  }
+  setList(cocktail.filter(cocktail => {
+    return cocktail.strDrink.includes(value)
+  }))
+})
+
+const clearButton = document.getElementById('clear')
+
+clearButton.addEventListener("click", () => {
+
+})
+
+function setList(results) {
+  for (const person of results) {
+    const resultItem = document.createElement('li');
+    resultItem.classList.add('result-item')
+
+    const text = document.createTextNode(cocktail.strDrink)
+
+    resultItem.appendChild(text)
+
+    list.appendChild(resultItem)
+  }
+}
 
 // document.querySelector("h3").addEventListener("toggle", myFunction);
 
