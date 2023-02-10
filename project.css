@@ -12,11 +12,12 @@ li {
   list-style: none;
 }
 
-a {
+.navbar {
   color: white;
   text-decoration: none;
   font-size: larger;
   font-weight: 100;
+  text-align: right;
 }
 
 .navbar {
@@ -30,7 +31,7 @@ a {
 .nav-menu{
   display: flex;
   justify-content: space-between;
-  align-items: left;
+  align-items: center;
   gap: 60px;
 }
 
@@ -83,15 +84,9 @@ a {
   flex-direction: column;
   background-color: pink;
   width: 100%;
-  text-align: left;
-  transition: 0.3s;
+  text-align: center;
 }
-nav-item{
-  margin: 16px 0;
-}
-.nav-menu.hamburger.active{
-  left: 0;
-}
+
 }
 
 .little {
@@ -124,19 +119,23 @@ nav-item{
   margin-top: 20px;
   font-size: 25px;
   margin-right: 10px;
-  color: grey;
+  color: black;
 }
 
 #section > h2 {
-  color:
-  red;
+  color: #cc99ff;
   padding: 40px;
   margin-top: 10px;
-  text-align: left;
+  text-align: center;
 }
 
-.h3 {
-  padding-top: 30px;
-  text-align: left;
-  color: black
+#section > #searchbar {
+  text-align: right;
+  padding-bottom: 200px;
+  padding-right: 70px;
+}
+
+.form {
+  padding-bottom: 200px;
+  padding-right: 70px;
 }
