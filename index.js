@@ -2,29 +2,37 @@ document.addEventListener('DOMContentLoaded', () => {
  fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
  .then(res => res.json())
  .then(data => {
-// debugger
+
+//forEach array iteration
+
   data.drinks.forEach(cocktail => {
     const div = document.createElement('div')
     const h3 = document.createElement('h3')
     const h4 = document.createElement('h4')
     const p = document.createElement('p')
 
+//Connecting HTML elements to array items
+
     h3.textContent = cocktail.strDrink;
-    // h3.style.color = "black";
     h4.textContent = (`${cocktail.strIngredient1}, ${cocktail.strIngredient2}, ${cocktail.strIngredient3}, ${cocktail.strIngredient4}`)
     p.textContent = cocktail.strInstructions
   
+//appending the elements to the DOM 
 
     div.append(h3)
     document.querySelector('#section').append(div)
+
+//1st Event Listener - Click Event     
   
-h3.addEventListener("click", clickAlert);
+h3.addEventListener("click",clickAlert);
 
  function clickAlert() {
   div.append(h4)
   div.append(p)
   
  }
+
+ //2nd Event Listener - Mouse Enter
 
  h3.addEventListener("mouseenter", (event) => {
   event.target.style.color = "blue";
@@ -36,45 +44,52 @@ h3.addEventListener("click", clickAlert);
 })
 })
 
+//3rd Event Listener - Input 
 
+const searchInput = document.querySelector('input');
 
-const searchInput = document.querySelector('.input');
+// let margaritaDrink = [];
 
-searchInput.addEventListener("input", (e)=> {
-  let value = e.target.value;
-  if (value && value.trim().length > 0) {
-    value = value.trim().toLowerCase()
-  } else {
+//   fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
+//   .then(res => res.json())
+//   .then(data => {
 
-  }
-  setList(cocktail.filter(cocktail => {
-    return cocktail.strDrink.includes(value)
-  }))
+// margaritaDrink = data.map(margaritaDrink => {
+//   const cat = 
+//   return (margaritas.strDrink)
+// })
+
+searchInput.addEventListener("input", e => {
+  const value = e.target.value
+  console.log(value)
+  
 })
+//   let value = e.target.value;
+//   if (value > 0) {
 
-const clearButton = document.getElementById('clear')
+//    }else {}
+//   })
 
-clearButton.addEventListener("click", () => {
+// function setList(results) {
+//   for (const cocktail of results) {
+//     const resultItem = document.createElement('li');
+//     resultItem.classList.add('result-item')
 
-})
+//     const text = document.createTextNode(cocktail.strDrink)
 
-function setList(results) {
-  for (const person of results) {
-    const resultItem = document.createElement('li');
-    resultItem.classList.add('result-item')
+//     resultItem.appendChild(text)
 
-    const text = document.createTextNode(cocktail.strDrink)
+//     list.appendChild(resultItem)
+//   }
+// }
 
-    resultItem.appendChild(text)
+// setList(cocktailDrinks.filter(cocktail => {
+//   return cocktail.strDrink.includes(value);
 
-    list.appendChild(resultItem)
-  }
-}
-
-// document.querySelector("h3").addEventListener("toggle", myFunction);
+// document.querySelector("h3").addEventListener("toggle", );
 
 // function myFunction() {
-//   alert("This was toggled")
+// alert("This was toggled")
 // }
 
 // document.querySelector('h3').addEventListener('click', function) {
