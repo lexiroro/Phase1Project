@@ -78,6 +78,51 @@ header {
   margin: 40px;
 }
 
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+input {
+  font-size: 1rem;
+}
+
+margarita-cards {
+  display: flex;
+  grid-template-columns: repeat(auto-fill), minmax(150px, 1fr);
+}
+
+.card {
+  border: 1px solid black;
+  background-color: white;
+  padding: 1.5rem;
+}
+
+.card > .ingredients {
+  margin-bottom: .25rem;
+  font-display: bold;
+  font-size: 30px;
+}
+
+.card > .recipe { 
+  font-size: .8rem;
+  font-size: 20px;
+}
+
 .hide {
   display: none;
+}
+
+.column {
+  float: left;
+  width: 40%;
+  padding: 55px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+  margin-left: 100px;
 }
