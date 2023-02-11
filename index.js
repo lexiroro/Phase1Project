@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
 //Connecting HTML elements to array items
 
     h3.textContent = cocktail.strDrink;
-    h4.textContent = (`${cocktail.strIngredient1}, ${cocktail.strIngredient2}, ${cocktail.strIngredient3}, ${cocktail.strIngredient4}`)
+    // h4.textContent = (`${cocktail.strIngredient1}, ${cocktail.strIngredient2}, ${cocktail.strIngredient3}, ${cocktail.strIngredient4}`)
+    h4.textContent = deleteNull
     p.textContent = cocktail.strInstructions
   
 //appending the elements to the DOM 
@@ -29,8 +30,25 @@ h3.addEventListener("click",clickAlert);
  function clickAlert() {
   div.append(h4)
   div.append(p)
-  
  }
+//Deleting Null values from Ingredients
+const deleteNull = {
+  ingredientOne: cocktail.strIngredient1,
+  ingredientTwo: cocktail.strIngredient2,
+  ingredientThree: cocktail.strIngredient3,
+  ingredientFour: cocktail.strIngredient4,
+}
+
+Object.keys(deleteNull).forEach(key => {
+if (deleteNull[key] === null) {
+    delete deleteNull[key];
+  }
+  else {
+    return deleteNull;
+  }
+})
+
+
 
  //2nd Event Listener - Mouse Enter
 
