@@ -46,136 +46,15 @@ h3.addEventListener("click",clickAlert);
 
 //3rd Event Listener - Input 
 
-const searchInput = document.querySelector('input');
+// const searchInput = document.querySelector('input');
+const dataDrinkTemplate = document.querySelector("[data-drink-template]")
 
-// let margaritaDrink = [];
-
-//   fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
-//   .then(res => res.json())
-//   .then(data => {
-
-// margaritaDrink = data.map(margaritaDrink => {
-//   const cat = 
-//   return (margaritas.strDrink)
-// })
-
-searchInput.addEventListener("input", e => {
-  const value = e.target.value
-  console.log(value)
-  
+fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
+.then(res => res.json())
+.then(data => {
+  data.drinks.forEach(margarita => {
+  const card = dataDrinkTemplate.content.cloneNode(true).children[0]
+  console.log(margarita)
+  })
 })
-//   let value = e.target.value;
-//   if (value > 0) {
-
-//    }else {}
-//   })
-
-// function setList(results) {
-//   for (const cocktail of results) {
-//     const resultItem = document.createElement('li');
-//     resultItem.classList.add('result-item')
-
-//     const text = document.createTextNode(cocktail.strDrink)
-
-//     resultItem.appendChild(text)
-
-//     list.appendChild(resultItem)
-//   }
-// }
-
-// setList(cocktailDrinks.filter(cocktail => {
-//   return cocktail.strDrink.includes(value);
-
-// document.querySelector("h3").addEventListener("toggle", );
-
-// function myFunction() {
-// alert("This was toggled")
-// }
-
-// document.querySelector('h3').addEventListener('click', function) {
-//   function showRecipe() {
-//     const h4= document.createElement('h4')
-//     const p = document.createElement('p')
-// h4.textContent = cocktail.strIngredient1
-// p.textContent = cocktail.strInstructions;
-// document.querySelector('#section').append(div);
-//   }
-// }
-
-
-
-
-//  function handleRenderSearch(){
-//   document.querySelector('#main').innerHTML = 
-//   `<form id="Cocktail-Search>
-//   <label for="searchCocktail">Search By Cocktail Name</label>
-//   <input id="searchByID" type="text" placeholder="Enter Cocktail here"/>
-//   <input type="submit" />
-// </form>`
-
-// document.querySelector('#Cocktail-Search').addEventListener('submit', handleAPIquery)
-// }
-
-  
-// function fetchResource(url) {
-//   return fetch(url)
-//   .then(res => res.json())
-// }
-
-// function createResources(url, body) {
-//   return fetch(url, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(body),
-//   })
-//   .then(res => res.json())
-// }
 })
-
-
-
-//Handles Cocktail API Search
-
-// function handleAPIquery(e) {
-//   fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
-//   e.preventDefault()
-//   const search = e.target.search.value
-//   console.log(search)
-// }
-
-
-// document.querySelector('#form').addEventListener('submit', handleForm) 
-
-// document.querySelector('#searchByID').addEventListener('click',handleRenderSearch)
-
-
-//Event Listeners - mouse over and mouseleave
-
-
-
-// const init = () => {
-//   const inputForm = document.querySelector('form')
-
-//   inputForm.addEventListener('submit', (event)=> {
-//     event.preventDefault();
-//     const input = document.querySelector('input#searchByID');
-  
-// const title = document.querySelector('section#cockDetails h4');
-// const summary = document.querySelector('section#cockDetails p')
-// title.innerText = data.title;
-// summary.innerText = data.summary;
-//  }
-
-
-//Notes
-// This is what works in the console
-// fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
-// .then(res => res.json())
-// .then(data => console.log(data.drinks[0].strDrink))
-
-//Attributes 
-//1. strDrink = Drink Name
-//2. strInstructions = Recipe
-//3. strIngredient1 = Recipe Items - followed by number
