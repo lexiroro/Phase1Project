@@ -29,15 +29,17 @@
         </div>
         <div class="form-container">
           <form class="form">
-              <input id="search" type="text" class="input" placeholder="search..."/>
+              <input id="search" data-search type="text" class="input" placeholder="search..."/>
               <button id="searchbutton" class = "search-results">Search</button>
           </form>
 </div>
-<div class ="margarita-cards">
-  <div class="card"></div>
-  <div class="ingredients">Ingredients:</div> 
-    <div class="recipe">Recipe:</div> 
+<div class ="margarita-cards" data-drink-cards-container>
+  <template data-drink-template>
+  <div class="card">
+  <div class="ingredients" ingredients ></div> 
+    <div class="recipe" recipe></div> 
 </div>
+</template>
       </main>
       <script src="index.js"></script>
     </body>
