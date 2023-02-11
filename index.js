@@ -48,13 +48,18 @@ h3.addEventListener("click",clickAlert);
 
 // const searchInput = document.querySelector('input');
 const dataDrinkTemplate = document.querySelector("[data-drink-template]")
+const drinkCardContainer = document.querySelector("[data-drink-cards-container]")
 
 fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
 .then(res => res.json())
 .then(data => {
   data.drinks.forEach(margarita => {
   const card = dataDrinkTemplate.content.cloneNode(true).children[0]
-  console.log(margarita)
+  const header = card.querySelector("[ingredients]")
+  const body = card.querySelector("[recipe]")
+  header.textContent = margarita.strDrink
+  body.textContent = margarita.strInstructions
+  drinkCardContainer.append(card)
   })
 })
 })
