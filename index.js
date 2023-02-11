@@ -46,20 +46,35 @@ h3.addEventListener("click",clickAlert);
 
 //3rd Event Listener - Input 
 
-// const searchInput = document.querySelector('input');
+const searchInput = document.querySelector('[data-search]');
 const dataDrinkTemplate = document.querySelector("[data-drink-template]")
 const drinkCardContainer = document.querySelector("[data-drink-cards-container]")
+
+let cocktailDrinks = [];
+
+
+searchInput.addEventListener("input", (e) => {
+const value = e.target.value.toLowerCase()
+cocktailDrinks.forEach(margarita => {
+const isVisible = 
+margarita.strDrink.toLowerCase().includes(value) || 
+margarita.strInstructions.toLowerCase().includes(value)
+margarita.element.classList.toggle("hide", !isVisible)
+// console.log(cocktailDrinks)
+})
+})
 
 fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
 .then(res => res.json())
 .then(data => {
-  data.drinks.forEach(margarita => {
+  cocktailDrinks = data.drinks.map(margarita => {
   const card = dataDrinkTemplate.content.cloneNode(true).children[0]
   const header = card.querySelector("[ingredients]")
   const body = card.querySelector("[recipe]")
   header.textContent = margarita.strDrink
   body.textContent = margarita.strInstructions
   drinkCardContainer.append(card)
+  return { strDrink: margarita.strDrink, strInstructions: margarita.strInstructions, element: card }
   })
 })
 })
