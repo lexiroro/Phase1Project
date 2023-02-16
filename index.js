@@ -13,31 +13,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const img = document.createElement('img')
 
 //Connecting HTML elements to array items
-
-    h3.textContent = cocktail.strDrink;
-    h3.classList.add("margaritalist")
-    h4.classList.add("container")
-    h4.textContent = (`${cocktail.strIngredient1}, ${cocktail.strIngredient2}, ${cocktail.strIngredient3}, ${cocktail.strIngredient4}, ${cocktail.strIngredient5}, ${cocktail.strIngredient6}, ${cocktail.strIngredient7}`)
-    h4.textContent = ingredients;
-const ingredientUl = document.createElement(ul)
-
 const ingredients = {
   ingredientOne: cocktail.strIngredient1,
   ingredientTwo: cocktail.strIngredient2,
   ingredientThree: cocktail.strIngredient3,
   ingredientFour: cocktail.strIngredient4,
+  ingredientFive: cocktail.strIngredient5,
+  ingredientSix: cocktail.strIngredient6,
+  ingredientSeven: cocktail.strIngredient7,
 }
 
-for (const [key, value] in Object.entries(ingredients)) { 
+
+    h3.textContent = cocktail.strDrink;
+    h3.classList.add("margaritalist")
+    h4.classList.add("container")
+    h4.textContent = ingredients
+const ingredientUl = document.createElement('div')
+
+
+for (const [key, value] of Object.entries(ingredients)) { 
 // Object.entries(ingredients) returns an array of arrays. Each nested array // will have 2 elements, the first is the key, the second the value, so we //can use destructuring to define a key and value variable
-
   if (value) { 
-    const ingredientLi = document.createElement('li');
+    const ingredientLi = document.createElement('p');
     ingredientLi.textContent = value;
-    ul.appendChild(ingredientLi)
+    ingredientUl.appendChild(ingredientLi)
   }
-  ul.appendChild(ingredientUl)
 }
+
+
+
     p.textContent = cocktail.strInstructions
     img.src = cocktail.strDrinkThumb
   
@@ -53,42 +57,15 @@ for (const [key, value] in Object.entries(ingredients)) {
 
 h3.addEventListener("click",clickAlert);
 
-function logItem(e) {
-  const item = document.querySelector(`[container=${e.target.id}]`);
-  item.toggleAttribute('hidden');
-}
-
-h3.addEventListener('toggle', logItem)
-
 function clickAlert() {
-  div.append(h4)
+  div.append(ingredientUl)
   div.append(p)
   div.append(img)
-  h4.classList.toggle('margaritalist')
-  p.classList.toggle('container')
-  }
-//Deleting Null values from Ingredients - Needs Work
+  h3.classList.toggle('margaritalist')
 
-const deleteNull = {
-  ingredientOne: cocktail.strIngredient1,
-  ingredientTwo: cocktail.strIngredient2,
-  ingredientThree: cocktail.strIngredient3,
-  ingredientFour: cocktail.strIngredient4,
-  ingredientFive: cocktail.strIngredient5,
-  ingredientSix: cocktail.strIngredient6,
-  ingredientSeven: cocktail.strIngredient7,
-}
-
-Object.keys(deleteNull).forEach(key => {
-if (deleteNull[key] === null) {
-    delete deleteNull[key];
+  
   }
-  else {
-    return {deleteNull};
-  }
-  console.log(deleteNull)
-
-})
+ 
 
  //2nd Event Listener - Mouse Enter
 
@@ -125,20 +102,48 @@ margarita.element.classList.toggle("hide", !isVisible)
 fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
 .then(res => res.json())
 .then(data => {
+
+
+
   cocktailDrinks = data.drinks.map(margarita => {
   const card = dataDrinkTemplate.content.cloneNode(true).children[0]
   const header = card.querySelector("[cocktailname]")
   const infoCard = card.querySelector("[ingredients]")
   const body = card.querySelector("[recipe]")
+  const margaritaUl = document.createElement('ul')
+  
+
+  const margaritaIngredients = {
+    ingredientOne: margarita.strIngredient1,
+    ingredientTwo: margarita.strIngredient2,
+    ingredientThree: margarita.strIngredient3,
+    ingredientFour: margarita.strIngredient4,
+    ingredientFive: margarita.strIngredient5,
+    ingredientSix: margarita.strIngredient6,
+    ingredientSeven: margarita.strIngredient7,
+  }
+
+
   header.textContent = margarita.strDrink
-  infoCard.textContent = (`${margarita.strIngredient1}, ${margarita.strIngredient2}, ${margarita.strIngredient3}, ${margarita.strIngredient4}`)
   body.textContent = margarita.strInstructions
+  infoCard.textContent = card.append(margaritaUl)
+ 
+
+  for (const [key, value] of Object.entries(margaritaIngredients)) { 
+    // Object.entries(ingredients) returns an array of arrays. Each nested array // will have 2 elements, the first is the key, the second the value, so we //can use destructuring to define a key and value variable
+      if (value) { 
+        const margaritaLi = document.createElement('li');
+        margaritaLi.textContent = value;
+        margaritaUl.appendChild(margaritaLi)
+      }
+    }
+
+
   drinkCardContainer.append(card)
-  return { strDrink: margarita.strDrink, Ingredient:margarita.strIngredient1,strInstructions: margarita.strInstructions, element: card }
+  return { strDrink: margarita.strDrink, margaritaIngredients, strInstructions: margarita.strInstructions, element: card }
   })
 })
 
 
-//Notes: Need to attach function to h4 element
-//Need to attach collapse feature for drinks
+
 
