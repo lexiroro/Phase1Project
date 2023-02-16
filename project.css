@@ -57,7 +57,7 @@ header {
   text-align: center;
   margin-top: 20px;
   font-size: 25px;
-  margin-right: 10px;
+  margin-right: 0;
   color: black;
 }
 
@@ -71,6 +71,8 @@ header {
 .searchbar {
   text-align: center;
   padding-top: 50px;
+  font-size: x-large;
+  color: #407088;
 }
 
 .form-container {
@@ -104,7 +106,9 @@ margarita-cards {
   font-display: bold;
   font-size: 30px;
 }
-
+.card > .cocktailname {
+  font-size: 30px;
+}
 .card > .recipe { 
   font-size: .8rem;
   font-size: 20px;
@@ -116,6 +120,7 @@ margarita-cards {
 
 .column {
   float: left;
+  display: block;
   width: 40%;
   padding: 55px;
 }
@@ -126,3 +131,29 @@ margarita-cards {
   display: table;
   margin-left: 100px;
 }
+
+.margaritalist {
+width: 100%;
+padding: 45px;
+background-color: white;
+cursor: pointer;
+}
+
+.content {
+  display: block;
+  overflow: hidden;
+}
+
+ul {
+list-style: none;
+text-align: center;
+display: flex;
+justify-content: space-around;
+padding: 10px;
+}
+
+.card > ul {
+  font-size: 20px;
+  justify-content: space-between;
+}
+
