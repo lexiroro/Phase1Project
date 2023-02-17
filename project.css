@@ -57,7 +57,7 @@ header {
   text-align: center;
   margin-top: 20px;
   font-size: 25px;
-  margin-right: 0;
+  margin-left: 0;
   color: black;
 }
 
@@ -65,6 +65,10 @@ header {
   color: #407088;
   padding: 40px;
   margin-top: 10px;
+  text-align: center;
+}
+
+#section > h3 {
   text-align: center;
 }
 
@@ -105,6 +109,7 @@ margarita-cards {
   margin-bottom: .25rem;
   font-display: bold;
   font-size: 30px;
+  text-align: center;
 }
 .card > .cocktailname {
   font-size: 30px;
@@ -145,15 +150,12 @@ cursor: pointer;
 }
 
 ul {
-list-style: none;
-text-align: center;
-display: flex;
-justify-content: space-around;
+list-style: circle;
+text-align: left;
 padding: 10px;
 }
 
 .card > ul {
   font-size: 20px;
-  justify-content: space-between;
 }
 
