@@ -72,6 +72,10 @@ header {
   text-align: center;
 }
 
+#section > span {
+  display: inline;
+}
+
 .searchbar {
   text-align: center;
   padding-top: 50px;
@@ -158,4 +162,3 @@ padding: 10px;
 .card > ul {
   font-size: 20px;
 }
-
